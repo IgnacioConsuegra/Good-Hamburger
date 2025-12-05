@@ -11,6 +11,7 @@ export default function Home() {
       price: 5,
       image: "https://images.unsplash.com/photo-1550547660-d9450f859349",
       description: "lorem",
+      id:1
     },
     {
       type: "Burger",
@@ -18,6 +19,7 @@ export default function Home() {
       price: 4.5,
       image: "https://images.unsplash.com/photo-1606755962773-d324e0a13086",
       description: "lorem",
+      id:2
     },
     {
       type: "Burger",
@@ -25,6 +27,7 @@ export default function Home() {
       price: 7,
       image: "",
       description: "lorem",
+      id:3
     },
     {
       type: "Extra",
@@ -32,6 +35,7 @@ export default function Home() {
       price: 2,
       image: "",
       description: "lorem",
+      id:4
     },
     {
       type: "Extra",
@@ -39,6 +43,7 @@ export default function Home() {
       price: 2.5,
       image: "",
       description: "lorem",
+      id:5
     },
   ];
   const [selectedCategory, setSelectedCategory] = useState(menu);
@@ -56,6 +61,7 @@ export default function Home() {
         break;
     }
   };
+
   return (
     <section className="max-w-7xl mx-auto py-10 px-4">
       <div className="mb-6">
@@ -98,11 +104,12 @@ export default function Home() {
       <div className="grid md:grid-cols-3 gap-8">
         {selectedCategory.map((item, index) => (
           <Card
-            key={index}
+            key={item.id}
             image={item.image}
             label={item.type}
             title={item.name}
             price={item.price}
+            id={item.id}
           />
         ))}
       </div>

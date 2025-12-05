@@ -1,9 +1,17 @@
 "use client";
 
-import React from "react";
-
-const Card = ({ image, label, title, price }) => (
-    <div className="border rounded-xl overflow-hidden shadow-sm">
+import React, { useContext } from "react";
+import { UserContext } from "../context/UserContext";
+const Card = ({ image, label, title, price, id }) => {
+  const { cart, setCart } = useContext(UserContext);
+  const handleAddToCart = () => {
+    setCart([...cart, id]); 
+  };
+  return (
+    <div
+      className="border rounded-xl overflow-hidden shadow-sm"
+      onClick={handleAddToCart}
+    >
       <div className="relative">
         <img
           src={image || null}
@@ -23,5 +31,6 @@ const Card = ({ image, label, title, price }) => (
       </div>
     </div>
   );
+};
 
-  export default Card;
+export default Card;

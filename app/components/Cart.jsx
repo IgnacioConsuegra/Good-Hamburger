@@ -1,10 +1,12 @@
 "use client";
 
-import React from "react";
+
+import React, { useContext } from "react";
+import { UserContext } from "../context/UserContext"; 
 import { ShoppingCart } from "lucide-react";
 
 const Cart = () => {
-  const itemCount = 0;
+  const {cart} = useContext(UserContext);
 
   return (
     <a
@@ -14,7 +16,7 @@ const Cart = () => {
       <div className="relative">
         <ShoppingCart className="h-6 w-6" />
 
-        {itemCount > 0 && <div className="absolute -top-1.5 -right-1.5 bg-red-600 text-white rounded-full h-4 w-4 flex items-center justify-center text-xs font-bold p-0.5">{itemCount}</div>}
+        {cart.length > 0 && <div className="absolute -top-1.5 -right-1.5 bg-red-600 text-white rounded-full h-4 w-4 flex items-center justify-center text-xs font-bold p-0.5">{cart.length}</div>}
       </div>
 
       <span className="text-xs mt-1">Cart</span>
