@@ -1,11 +1,9 @@
-import NavBar from "./components/NavBar";
-import Home from "./components/Home";
+import Home from "./home/page";
 
 export default function Page() {
   return (
     <>
-    <NavBar/>
-    <Home/>
+      <Home />
     </>
   );
 }

@@ -1,8 +1,8 @@
 "use client";
 
-import React, {useState} from "react";
-import NavBar from "./NavBar";
-import Card from "./Card";
+import React, { useState } from "react";
+import NavBar from "../components/NavBar";
+import Card from "../components/Card";
 export default function Home() {
   const menu = [
     {
@@ -11,7 +11,7 @@ export default function Home() {
       price: 5,
       image: "https://images.unsplash.com/photo-1550547660-d9450f859349",
       description: "lorem",
-      id:1
+      id: 1,
     },
     {
       type: "Burger",
@@ -19,7 +19,7 @@ export default function Home() {
       price: 4.5,
       image: "https://images.unsplash.com/photo-1606755962773-d324e0a13086",
       description: "lorem",
-      id:2
+      id: 2,
     },
     {
       type: "Burger",
@@ -27,7 +27,7 @@ export default function Home() {
       price: 7,
       image: "",
       description: "lorem",
-      id:3
+      id: 3,
     },
     {
       type: "Extra",
@@ -35,7 +35,7 @@ export default function Home() {
       price: 2,
       image: "",
       description: "lorem",
-      id:4
+      id: 4,
     },
     {
       type: "Extra",
@@ -43,7 +43,7 @@ export default function Home() {
       price: 2.5,
       image: "",
       description: "lorem",
-      id:5
+      id: 5,
     },
   ];
   const [selectedCategory, setSelectedCategory] = useState(menu);
@@ -90,13 +90,33 @@ export default function Home() {
           Filter by:
         </span>
 
-        <button className={`px-4 py-1 rounded-full border text-sm transition-all duration-300 ${selectedCategory.length === menu.length && "bg-orange-100 text-orange-700 scale-105"}`} onClick={() => filterItems(3)}>
+        <button
+          className={`px-4 py-1 rounded-full border text-sm transition-all duration-300 ${
+            selectedCategory.length === menu.length &&
+            "bg-orange-100 text-orange-700 scale-105"
+          }`}
+          onClick={() => filterItems(3)}
+        >
           All Items
         </button>
-        <button className={`px-4 py-1 rounded-full border text-sm transition-all duration-300 ${(selectedCategory.length !== menu.length && selectedCategory[0]["type"]  === "Burger" ) && "bg-orange-100 text-orange-700 scale-105"}`} onClick={() => filterItems(1)} >
+        <button
+          className={`px-4 py-1 rounded-full border text-sm transition-all duration-300 ${
+            selectedCategory.length !== menu.length &&
+            selectedCategory[0]["type"] === "Burger" &&
+            "bg-orange-100 text-orange-700 scale-105"
+          }`}
+          onClick={() => filterItems(1)}
+        >
           Sandwiches
         </button>
-        <button className={`px-4 py-1 rounded-full border text-sm transition-all duration-300 ${(selectedCategory.length !== menu.length && selectedCategory[0]["type"]  === "Extra" ) && "bg-orange-100 text-orange-700 scale-105"}`} onClick={() => filterItems(2)}>
+        <button
+          className={`px-4 py-1 rounded-full border text-sm transition-all duration-300 ${
+            selectedCategory.length !== menu.length &&
+            selectedCategory[0]["type"] === "Extra" &&
+            "bg-orange-100 text-orange-700 scale-105"
+          }`}
+          onClick={() => filterItems(2)}
+        >
           Extras
         </button>
       </div>
