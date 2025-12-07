@@ -2,6 +2,7 @@
 
 > **Frontend demo** of a food-ordering app (Next.js + React + Tailwind).
 > Includes a cart with business rules, combo discounts, order history, loading delay simulation, and unit tests for discount logic.
+> **Want to test it? <a href="https://good-hamburger-psi.vercel.app/cart" target="_blank">Click here</a>** .
 
 ---
 
