@@ -10,31 +10,6 @@
 </p>
 
 <hr>
-<p align="center">
-  <img alt="Good Hamburger" src="https://res.cloudinary.com/djhvdnjpz/image/upload/v1765139297/Screenshot_165_ylrjiz.jpg" width="640"/>
-</p>
-<hr>
-
-<p align="center">
-  <img alt="Good Hamburger" src="https://res.cloudinary.com/djhvdnjpz/image/upload/v1765139297/Screenshot_166_s9xwk9.jpg" width="640"/>
-</p>
-<hr>
-
-<p align="center">
-  <img alt="Good Hamburger" src="https://res.cloudinary.com/djhvdnjpz/image/upload/v1765140017/WhatsApp_Image_2025-12-07_at_15.39.50_07d47ae3_arpl7c.jpg" width="640"/>
-</p>
-<hr>
-
-<p align="center">
-  <img alt="Good Hamburger" src="https://res.cloudinary.com/djhvdnjpz/image/upload/v1765139837/WhatsApp_Image_2025-12-07_at_15.36.27_e1b01a59_elz4wk.jpg" width="640"/>
-</p>
-
-<hr>
-
-<p align="center">
-  <img alt="Good Hamburger" src="https://res.cloudinary.com/djhvdnjpz/image/upload/v1765139837/WhatsApp_Image_2025-12-07_at_15.36.38_c7a421f1_pxrold.jpg" width="640"/>
-</p>
-<hr>
 
 ## 📌 Table of Contents
 
@@ -50,6 +25,7 @@
 - [Requirements & Project Guidelines](#Requirements-&-Project-Guidelines)
 - [Contributing](#contributing)
 - [Contact](#contact)
+- [Images](#Images)
 
 ---
 
@@ -572,3 +548,36 @@ If you have any questions, feedback, or want to connect, feel free to reach out!
 **+57 315 295 0340**
 
 ---
+
+## 📸 Images
+
+<p align="center">
+  <img alt="Good Hamburger" src="https://res.cloudinary.com/djhvdnjpz/image/upload/v1765139298/Screenshot_164_xvgl8y.jpg" width="640"/>
+</p>
+
+<hr>
+<p align="center">
+  <img alt="Good Hamburger" src="https://res.cloudinary.com/djhvdnjpz/image/upload/v1765139297/Screenshot_165_ylrjiz.jpg" width="640"/>
+</p>
+<hr>
+
+<p align="center">
+  <img alt="Good Hamburger" src="https://res.cloudinary.com/djhvdnjpz/image/upload/v1765139297/Screenshot_166_s9xwk9.jpg" width="640"/>
+</p>
+<hr>
+
+<p align="center">
+  <img alt="Good Hamburger" src="https://res.cloudinary.com/djhvdnjpz/image/upload/v1765140017/WhatsApp_Image_2025-12-07_at_15.39.50_07d47ae3_arpl7c.jpg" width="640"/>
+</p>
+<hr>
+
+<p align="center">
+  <img alt="Good Hamburger" src="https://res.cloudinary.com/djhvdnjpz/image/upload/v1765139837/WhatsApp_Image_2025-12-07_at_15.36.27_e1b01a59_elz4wk.jpg" width="640"/>
+</p>
+
+<hr>
+
+<p align="center">
+  <img alt="Good Hamburger" src="https://res.cloudinary.com/djhvdnjpz/image/upload/v1765139837/WhatsApp_Image_2025-12-07_at_15.36.38_c7a421f1_pxrold.jpg" width="640"/>
+</p>
+<hr>
