@@ -1,17 +1,18 @@
 "use client";
 import { Toaster } from "react-hot-toast";
 
-import { createContext, use, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
 export const UserContext = createContext();
 
 export default function UserProvider({ children }) {
   const [cart, setCart] = useState([]); //{ id, image, title, price, type }
-  const [orders, setOrders] = useState([]);
+  const [orders, setOrders] = useState([]); // {total, subTotal, percentDiscount item: [{ id, image, title, price, type }]}
   const [priceWithDiscount, setPriceWithDiscount] = useState(0);
   const [percentDiscount, setPercentDiscount] = useState(0);
   const [subTotal, setSubtotal] = useState(0);
+  const [userName, setUserName] = useState("");
   const handleDiscounts = currentCart => {
     const hasSandwich = currentCart.some(i => i.type === "Burger");
     const hasFries = currentCart.some(i => i.type === "Fries");
@@ -58,17 +59,32 @@ export default function UserProvider({ children }) {
     toast.success("Item removed from cart Successfully");
     handleDiscounts(updatedCart);
   };
-  const handleSubmitOrder = () => {
+  const handleSubmitOrder = name => {
+    const finaleName = name || userName;
+    if (!finaleName.length) return;
     if (cart.length === 0) {
       toast.error("Your cart is empty");
       return;
     }
-    setOrders([...orders, cart]);
+    setOrders([
+      ...orders,
+      { total: priceWithDiscount, subTotal, percentDiscount, item: cart },
+    ]);
     setCart([]);
     setPriceWithDiscount(0);
     setPercentDiscount(0);
     setSubtotal(0);
     toast.success("Order submitted successfully");
+  };
+  const handleUserName = text => {
+    let name = String(text.trim());
+    if (name.length === 0) {
+      toast.error("Order canceled");
+      return;
+    } else {
+      setUserName(name);
+      handleSubmitOrder(name);
+    }
   };
 
   return (
@@ -89,6 +105,8 @@ export default function UserProvider({ children }) {
           percentDiscount,
           handleRemoveFromCart,
           handleSubmitOrder,
+          userName,
+          handleUserName,
         }}
       >
         {children}

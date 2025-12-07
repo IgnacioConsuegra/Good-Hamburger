@@ -68,7 +68,7 @@ export default function Home() {
   };
 
   return (
-    <section className="max-w-7xl mx-auto py-10 px-4">
+    <section className="max-w-7xl mx-auto py-10 px-4 pb-24">
       <div className="mb-6">
         <h2 className="text-2xl font-bold">Our Menu</h2>
         <p className="text-muted-foreground">
@@ -96,37 +96,42 @@ export default function Home() {
         </span>
 
         <button
-          className={`px-4 py-1 rounded-full border text-sm transition-all duration-300 ${
-            selectedCategory.length === menu.length &&
-            "bg-orange-100 text-orange-700 scale-105"
-          }`}
+          className={`px-4 py-1 rounded-full border text-sm transition-all duration-300 
+    active:scale-95 active:opacity-80 
+    ${
+      selectedCategory.length === menu.length &&
+      "bg-orange-100 text-orange-700 scale-105"
+    }`}
           onClick={() => filterItems(3)}
         >
           All Items
         </button>
         <button
-          className={`px-4 py-1 rounded-full border text-sm transition-all duration-300 ${
-            selectedCategory.length !== menu.length &&
-            selectedCategory[0]["type"] === "Burger" &&
-            "bg-orange-100 text-orange-700 scale-105"
-          }`}
+          className={`px-4 py-1 rounded-full border text-sm transition-all duration-300 
+    active:scale-95 active:opacity-80  ${
+      selectedCategory.length !== menu.length &&
+      selectedCategory[0]["type"] === "Burger" &&
+      "bg-orange-100 text-orange-700 scale-105"
+    }`}
           onClick={() => filterItems(1)}
         >
           Sandwiches
         </button>
         <button
-          className={`px-4 py-1 rounded-full border text-sm transition-all duration-300 ${
-            selectedCategory.length !== menu.length &&
-            selectedCategory[0]["type"] === "Extra" &&
-            "bg-orange-100 text-orange-700 scale-105"
-          }`}
+          className={`px-4 py-1 rounded-full border text-sm transition-all duration-300 
+    active:scale-95 active:opacity-80 
+    ${
+      selectedCategory.length !== menu.length &&
+      selectedCategory[0]["type"] !== "Burger" &&
+      "bg-orange-100 text-orange-700 scale-105"
+    }`}
           onClick={() => filterItems(2)}
         >
           Extras
         </button>
       </div>
 
-      <div className="grid md:grid-cols-3 gap-8">
+      <div className="grid md:grid-cols-3 gap-8 mar ">
         {selectedCategory.map((item, index) => (
           <Card
             key={item.id}

@@ -20,7 +20,11 @@ const Card = ({ image, label, title, price, id, type }) => {
         <h4 className="font-semibold">{title}</h4>
         <p className="text-sm text-muted-foreground mb-4">${price}</p>
         <button
-          className="w-full bg-orange-600 text-white py-2 rounded-lg flex items-center justify-center gap-2 cursor-pointer"
+          className="
+    w-full bg-orange-600 hover:bg-orange-700 text-white py-3 rounded-xl shadow-lg 
+    flex items-center justify-center gap-2 cursor-pointer 
+    active:scale-95 active:shadow-inner transition-all duration-150
+  "
           onClick={() => handleAddToCart({ id, image, title, price, type })}
         >
           + Add to Cart

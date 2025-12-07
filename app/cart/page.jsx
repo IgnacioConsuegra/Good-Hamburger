@@ -13,17 +13,29 @@ export default function CartPage() {
     percentDiscount,
     handleRemoveFromCart,
     handleSubmitOrder,
+    userName,
+    handleUserName,
   } = useContext(UserContext);
+  const [name, setName] = useState("");
+  const [showInput, setShowInput] = useState(false);
   const onRemoveFromCart = id => {
     return true;
   };
   const onSubmitOrder = id => {
     return true;
   };
+  const handleSubmitButton = () => {
+    handleSubmitOrder();
+    if (!userName) setShowInput(true);
+  };
+  const handleNameSent = name => {
+    handleUserName(name);
+    setShowInput(false);
+  };
   //{ id, image, title, price }
 
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-8">
+    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-0.1 md:py-8 min-h-screen pb-24">
       <div className="mb-8">
         <h2 className="text-gray-900 mb-2">Your Cart</h2>
         <p className="text-gray-600">Review your order before checkout</p>
@@ -49,7 +61,7 @@ export default function CartPage() {
                 >
                   <div className="flex gap-4">
                     {/* Image */}
-                    <div className="w-20 h-20 rounded-xl overflow-hidden bg-gray-100 -shrink-0">
+                    <div className="w-20 h-20 rounded-xl overflow-hidden bg-gray-100 shrink-0">
                       <img
                         src={item.image}
                         alt={item.title}
@@ -124,13 +136,49 @@ export default function CartPage() {
 
           {/* Submit Button */}
           <button
-            onClick={handleSubmitOrder}
-            className="w-full bg-orange-600 hover:bg-orange-700 text-white py-3 rounded-xl shadow-lg flex items-center justify-center gap-2 cursor-pointer"
+            onClick={handleSubmitButton}
+            className="
+    w-full bg-orange-600 hover:bg-orange-700 text-white py-3 rounded-xl shadow-lg 
+    flex items-center justify-center gap-2 cursor-pointer 
+    active:scale-95 active:shadow-inner transition-all duration-150
+  "
           >
             <span>Submit Order</span>
             <ArrowRight className="w-5 h-5" />
           </button>
         </>
+      )}
+      {userName.length === 0 && showInput && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-30">
+          <div className="bg-white p-6 rounded-2xl shadow-lg w-80 space-y-4">
+            <h2 className="text-lg font-semibold text-gray-800">
+              May we know your name ?
+            </h2>
+
+            <input
+              onChange={ev => setName(ev.target.value)}
+              type="text"
+              placeholder="Your name"
+              className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500 cursor-pointer"
+            />
+
+            <div className="flex justify-end gap-3">
+              <button
+                onClick={() => handleNameSent("")}
+                className="px-4 py-2 rounded-lg bg-gray-200 cursor-pointer"
+              >
+                Cancel
+              </button>
+
+              <button
+                onClick={() => handleNameSent(name)}
+                className="px-4 py-2 rounded-lg bg-orange-600 text-white cursor-pointer"
+              >
+                Confirm
+              </button>
+            </div>
+          </div>
+        </div>
       )}
     </div>
   );
