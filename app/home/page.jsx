@@ -33,7 +33,7 @@ export default function Home() {
       id: 3,
     },
     {
-      type: "Extra",
+      type: "Fries",
       name: "Fries",
       price: 2,
       image:
@@ -42,7 +42,7 @@ export default function Home() {
       id: 4,
     },
     {
-      type: "Extra",
+      type: "Drink",
       name: " Soft drink",
       price: 2.5,
       image:
@@ -59,7 +59,7 @@ export default function Home() {
         setSelectedCategory(menu.filter(item => item.type === "Burger"));
         break;
       case 2:
-        setSelectedCategory(menu.filter(item => item.type === "Extra"));
+        setSelectedCategory(menu.filter(item => item.type !== "Burger"));
         break;
       default:
         setSelectedCategory(menu);
@@ -135,6 +135,7 @@ export default function Home() {
             title={item.name}
             price={item.price}
             id={item.id}
+            type={item.type}
           />
         ))}
       </div>

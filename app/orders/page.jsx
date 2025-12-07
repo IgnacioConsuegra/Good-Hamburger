@@ -1,12 +1,14 @@
 "use client";
 
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 
 import { UserContext } from "../context/UserContext";
 import { Package, Trash2, Tag, ArrowRight } from "lucide-react";
 
 export default function CartPage() {
   const { cart, setCart } = useContext(UserContext);
+  const [subtotal, setSubtotal] = useState(0);
+  //{ id, image, title, price }
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-8">
       <div className="mb-8">
@@ -32,17 +34,17 @@ export default function CartPage() {
                 >
                   <div className="flex gap-4">
                     {/* Image */}
-                    <div className="w-20 h-20 rounded-xl overflow-hidden bg-gray-100 flex-shrink-0">
+                    <div className="w-20 h-20 rounded-xl overflow-hidden bg-gray-100 shrink-0">
                       <image
                         src={item.image}
-                        alt={item.name}
+                        alt={item.title}
                         className="w-full h-full object-cover"
                       />
                     </div>
 
                     {/* Info */}
                     <div className="flex-1 min-w-0">
-                      <h4 className="text-gray-900 mb-1">{item.name}</h4>
+                      <h4 className="text-gray-900 mb-1">{item.title}</h4>
                       <p className="text-orange-600">
                         ${item.price.toFixed(2)}
                       </p>
@@ -51,7 +53,7 @@ export default function CartPage() {
                     {/* Remove Button */}
                     <button
                       onClick={() => onRemoveFromCart(item.id)}
-                      className="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-lg hover:bg-red-50 text-red-600 transition-colors"
+                      className="shrink-0 w-10 h-10 flex items-center justify-center rounded-lg hover:bg-red-50 text-red-600 transition-colors"
                       aria-label="Remove item"
                     >
                       <Trash2 className="w-5 h-5" />
@@ -86,7 +88,7 @@ export default function CartPage() {
 
               <div className="flex justify-between text-gray-900">
                 <span>Total</span>
-                <span>${total.toFixed(2)}</span>
+                <span>{priceWithDiscount}</span>
               </div>
             </div>
           </div>

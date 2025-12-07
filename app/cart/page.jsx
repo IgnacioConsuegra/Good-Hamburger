@@ -1,12 +1,27 @@
 "use client";
 
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 
 import { UserContext } from "../context/UserContext";
 import { ShoppingBag, Trash2, Tag, ArrowRight } from "lucide-react";
 
 export default function CartPage() {
-  const { cart, setCart } = useContext(UserContext);
+  const {
+    cart,
+    priceWithDiscount,
+    subTotal,
+    percentDiscount,
+    handleRemoveFromCart,
+    handleSubmitOrder,
+  } = useContext(UserContext);
+  const onRemoveFromCart = id => {
+    return true;
+  };
+  const onSubmitOrder = id => {
+    return true;
+  };
+  //{ id, image, title, price }
+
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-8">
       <div className="mb-8">
@@ -34,17 +49,17 @@ export default function CartPage() {
                 >
                   <div className="flex gap-4">
                     {/* Image */}
-                    <div className="w-20 h-20 rounded-xl overflow-hidden bg-gray-100 flex-shrink-0">
-                      <image
+                    <div className="w-20 h-20 rounded-xl overflow-hidden bg-gray-100 -shrink-0">
+                      <img
                         src={item.image}
-                        alt={item.name}
+                        alt={item.title}
                         className="w-full h-full object-cover"
                       />
                     </div>
 
                     {/* Info */}
                     <div className="flex-1 min-w-0">
-                      <h4 className="text-gray-900 mb-1">{item.name}</h4>
+                      <h4 className="text-gray-900 mb-1">{item.title}</h4>
                       <p className="text-orange-600">
                         ${item.price.toFixed(2)}
                       </p>
@@ -52,8 +67,8 @@ export default function CartPage() {
 
                     {/* Remove Button */}
                     <button
-                      onClick={() => onRemoveFromCart(item.id)}
-                      className="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-lg hover:bg-red-50 text-red-600 transition-colors"
+                      onClick={() => handleRemoveFromCart(item)}
+                      className="shrink-0 w-10 h-10 flex items-center justify-center rounded-lg hover:bg-red-50 text-red-600 transition-colors cursor-pointer"
                       aria-label="Remove item"
                     >
                       <Trash2 className="w-5 h-5" />
@@ -71,16 +86,18 @@ export default function CartPage() {
             <div className="space-y-3">
               <div className="flex justify-between text-gray-600">
                 <span>Subtotal</span>
-                <span>${subtotal.toFixed(2)}</span>
+                <span>${subTotal.toFixed(2)}</span>
               </div>
 
-              {discount > 0 && (
+              {percentDiscount > 0 && (
                 <div className="flex justify-between text-green-600">
                   <div className="flex items-center gap-2">
                     <Tag className="w-4 h-4" />
-                    <span>Discount ({(discount * 100).toFixed(0)}% off)</span>
+                    <span>Discount {percentDiscount}% off</span>
                   </div>
-                  <span>- ${(subtotal * discount).toFixed(2)}</span>
+                  <span>
+                    - ${((subTotal * percentDiscount) / 100).toFixed(2)}
+                  </span>
                 </div>
               )}
 
@@ -88,13 +105,13 @@ export default function CartPage() {
 
               <div className="flex justify-between text-gray-900">
                 <span>Total</span>
-                <span>${total.toFixed(2)}</span>
+                <span>${priceWithDiscount}</span>
               </div>
             </div>
           </div>
 
           {/* Discount Info */}
-          {discount === 0 && (
+          {percentDiscount === 0 && (
             <div className="bg-amber-50 border border-amber-200 rounded-2xl p-4 mb-6">
               <h4 className="text-amber-900 mb-2">💡 Available Discounts</h4>
               <ul className="text-amber-800 space-y-1 text-sm">
@@ -107,11 +124,11 @@ export default function CartPage() {
 
           {/* Submit Button */}
           <button
-            onClick={onSubmitOrder}
-            className="w-full bg-orange-600 hover:bg-orange-700 text-white py-6 rounded-xl shadow-lg"
+            onClick={handleSubmitOrder}
+            className="w-full bg-orange-600 hover:bg-orange-700 text-white py-3 rounded-xl shadow-lg flex items-center justify-center gap-2 cursor-pointer"
           >
             <span>Submit Order</span>
-            <ArrowRight className="w-5 h-5 ml-2" />
+            <ArrowRight className="w-5 h-5" />
           </button>
         </>
       )}
