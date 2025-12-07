@@ -15,7 +15,7 @@ const OrderItem = ({ order }) => {
 
   return (
     <div
-      className="bg-white rounded-2xl shadow p-4 mb-4 transition-all px-4 py-1   text-sm transition-all duration-300 
+      className="bg-white rounded-2xl shadow p-4 mb-4 transition-all px-4 py-1   text-sm duration-300 
     active:scale-95 active:opacity-80  "
     >
       {/* --- COMPACT VIEW (always visible) --- */}

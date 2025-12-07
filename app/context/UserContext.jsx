@@ -9,7 +9,7 @@ export const UserContext = createContext();
 
 export default function UserProvider({ children }) {
   const [cart, setCart] = useState([]); //{ id, image, title, price, type }
-  const [orders, setOrders] = useState([]); // {total, subTotal, percentDiscount item: [{ id, image, title, price, type }]}
+  const [orders, setOrders] = useState([]); // {total, subTotal, percentDiscount, item: [{ id, image, title, price, type }]}
   const [priceWithDiscount, setPriceWithDiscount] = useState(0);
   const [percentDiscount, setPercentDiscount] = useState(0);
   const [subTotal, setSubtotal] = useState(0);

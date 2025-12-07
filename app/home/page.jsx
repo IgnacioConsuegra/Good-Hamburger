@@ -1,14 +1,14 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import NavBar from "../components/NavBar";
 import Card from "../components/Card";
-import { menu } from "../data/menu";
 import toast from "react-hot-toast";
 import { Loader } from "lucide-react";
+import { fetchMenu } from "../services/menuService";
+
 export default function Home() {
   const [selectedCategory, setSelectedCategory] = useState([]);
-
+  const [menu, setMenu] = useState([]);
   const filterItems = number => {
     if (!selectedCategory.length)
       toast.error("Our menu is loading, wait a second please");
@@ -25,9 +25,10 @@ export default function Home() {
     }
   };
   useEffect(() => {
-    setTimeout(() => {
-      setSelectedCategory(menu);
-    }, 1000);
+    fetchMenu().then(data => {
+      setMenu(data);
+      setSelectedCategory(data);
+    });
   }, []);
   return (
     <section className="max-w-7xl mx-auto py-10 px-4 pb-24">
