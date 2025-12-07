@@ -61,7 +61,7 @@ const OrderItem = ({ order }) => {
           <div className="pt-4 border-t text-sm text-gray-700">
             <p className="flex justify-between">
               <span>Subtotal</span>
-              <span>${order.subTotal}</span>
+              <span>${order.subTotal.toFixed(2)}</span>
             </p>
 
             {order.percentDiscount > 0 && (

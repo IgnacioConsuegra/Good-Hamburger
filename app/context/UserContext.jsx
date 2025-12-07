@@ -1,7 +1,8 @@
 "use client";
 import { Toaster } from "react-hot-toast";
 
-import { createContext, useEffect, useState } from "react";
+import { createContext, useState } from "react";
+import { calculateDiscount } from "@/lib/calculateDisCount";
 import toast from "react-hot-toast";
 
 export const UserContext = createContext();
@@ -14,34 +15,11 @@ export default function UserProvider({ children }) {
   const [subTotal, setSubtotal] = useState(0);
   const [userName, setUserName] = useState("");
   const handleDiscounts = currentCart => {
-    const hasSandwich = currentCart.some(i => i.type === "Burger");
-    const hasFries = currentCart.some(i => i.type === "Fries");
-    const hasDrink = currentCart.some(i => i.type === "Drink");
-
-    // Normal price
-    const totalPrice = currentCart.reduce(
-      (accumulated, currentItem) => accumulated + currentItem.price,
-      0
-    );
+    const { totalPrice, discountPercent, finalPrice } =
+      calculateDiscount(currentCart);
     setSubtotal(totalPrice);
-    let discount = 0;
-
-    // Rule 1: sandwich + fries + drink → 20%
-    if (hasSandwich && hasFries && hasDrink) {
-      discount = 0.2;
-    }
-    // Rule 2: sandwich + drink → 15%
-    else if (hasSandwich && hasDrink) {
-      discount = 0.15;
-    }
-    // Rule 3: sandwich + fries → 10%
-    else if (hasSandwich && hasFries) {
-      discount = 0.1;
-    }
-
-    const finalPrice = totalPrice - totalPrice * discount;
     setPriceWithDiscount(finalPrice);
-    setPercentDiscount(discount * 100);
+    setPercentDiscount(discountPercent);
   };
   const handleAddToCart = item => {
     if (cart.some(element => element.type === item.type)) {

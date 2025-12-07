@@ -117,7 +117,7 @@ export default function CartPage() {
 
               <div className="flex justify-between text-gray-900">
                 <span>Total</span>
-                <span>${priceWithDiscount}</span>
+                <span>${priceWithDiscount.toFixed(2)}</span>
               </div>
             </div>
           </div>
