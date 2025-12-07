@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Cart from "./Cart";
 import Orders from "./Orders";
 import Menu from "./Menu";
@@ -8,7 +8,6 @@ import { useRouter } from "next/navigation";
 
 const NavBar = () => {
   const router = useRouter();
-
   return (
     <>
       <nav className="bg-white shadow-md sticky top-0 z-10">

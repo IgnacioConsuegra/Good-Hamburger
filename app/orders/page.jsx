@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 
 import { UserContext } from "../context/UserContext";
-import { Package, Trash2, Tag, ArrowRight } from "lucide-react";
+import { Package } from "lucide-react";
 import OrderItem from "./OrderItem";
 
 export default function CartPage() {
@@ -30,7 +30,7 @@ export default function CartPage() {
           <div className="bg-white rounded-2xl shadow-md overflow-hidden mb-6">
             <div className="divide-y divide-gray-100">
               <div className="p-4">
-                {orders.map((order, index) => (
+                {[...orders].reverse().map((order, index) => (
                   <OrderItem key={index} order={order} />
                 ))}
               </div>

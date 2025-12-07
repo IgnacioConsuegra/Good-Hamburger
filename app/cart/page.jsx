@@ -3,36 +3,34 @@
 import React, { useContext, useState } from "react";
 
 import { UserContext } from "../context/UserContext";
-import { ShoppingBag, Trash2, Tag, ArrowRight } from "lucide-react";
+import { ShoppingBag, Tag, ArrowRight } from "lucide-react";
+import CartItem from "./CartItem";
 
 export default function CartPage() {
   const {
-    cart,
-    priceWithDiscount,
-    subTotal,
-    percentDiscount,
-    handleRemoveFromCart,
     handleSubmitOrder,
+    handleRemoveFromCart,
     userName,
+    priceData,
     handleUserName,
+    cart,
   } = useContext(UserContext);
+
+  //This will be used only to ask the user his userName
   const [name, setName] = useState("");
   const [showInput, setShowInput] = useState(false);
-  const onRemoveFromCart = id => {
-    return true;
-  };
-  const onSubmitOrder = id => {
-    return true;
-  };
+
   const handleSubmitButton = () => {
+    if (!userName) {
+      setShowInput(true);
+      return;
+    }
     handleSubmitOrder();
-    if (!userName) setShowInput(true);
   };
   const handleNameSent = name => {
     handleUserName(name);
     setShowInput(false);
   };
-  //{ id, image, title, price }
 
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-0.1 md:py-8 min-h-screen pb-24">
@@ -40,7 +38,7 @@ export default function CartPage() {
         <h2 className="text-gray-900 mb-2">Your Cart</h2>
         <p className="text-gray-600">Review your order before checkout</p>
       </div>
-
+      {/* This part will show that the user does not have any items yet. */}
       {cart.length === 0 ? (
         <div className="bg-white rounded-2xl p-12 text-center shadow-md">
           <ShoppingBag className="w-16 h-16 text-gray-300 mx-auto mb-4" />
@@ -50,43 +48,17 @@ export default function CartPage() {
           </p>
         </div>
       ) : (
+        // Our current cart.
         <>
           {/* Cart Items */}
           <div className="bg-white rounded-2xl shadow-md overflow-hidden mb-6">
             <div className="divide-y divide-gray-100">
               {cart.map(item => (
-                <div
+                <CartItem
                   key={item.id}
-                  className="p-4 hover:bg-gray-50 transition-colors"
-                >
-                  <div className="flex gap-4">
-                    {/* Image */}
-                    <div className="w-20 h-20 rounded-xl overflow-hidden bg-gray-100 shrink-0">
-                      <img
-                        src={item.image}
-                        alt={item.title}
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-
-                    {/* Info */}
-                    <div className="flex-1 min-w-0">
-                      <h4 className="text-gray-900 mb-1">{item.title}</h4>
-                      <p className="text-orange-600">
-                        ${item.price.toFixed(2)}
-                      </p>
-                    </div>
-
-                    {/* Remove Button */}
-                    <button
-                      onClick={() => handleRemoveFromCart(item)}
-                      className="shrink-0 w-10 h-10 flex items-center justify-center rounded-lg hover:bg-red-50 text-red-600 transition-colors cursor-pointer"
-                      aria-label="Remove item"
-                    >
-                      <Trash2 className="w-5 h-5" />
-                    </button>
-                  </div>
-                </div>
+                  item={item}
+                  handleRemoveFromCart={handleRemoveFromCart}
+                />
               ))}
             </div>
           </div>
@@ -98,17 +70,21 @@ export default function CartPage() {
             <div className="space-y-3">
               <div className="flex justify-between text-gray-600">
                 <span>Subtotal</span>
-                <span>${subTotal.toFixed(2)}</span>
+                <span>${priceData.subTotal.toFixed(2)}</span>
               </div>
 
-              {percentDiscount > 0 && (
+              {priceData.percentDiscount > 0 && (
                 <div className="flex justify-between text-green-600">
                   <div className="flex items-center gap-2">
                     <Tag className="w-4 h-4" />
-                    <span>Discount {percentDiscount}% off</span>
+                    <span>Discount {priceData.percentDiscount}% off</span>
                   </div>
                   <span>
-                    - ${((subTotal * percentDiscount) / 100).toFixed(2)}
+                    - $
+                    {(
+                      (priceData.subTotal * priceData.percentDiscount) /
+                      100
+                    ).toFixed(2)}
                   </span>
                 </div>
               )}
@@ -117,13 +93,13 @@ export default function CartPage() {
 
               <div className="flex justify-between text-gray-900">
                 <span>Total</span>
-                <span>${priceWithDiscount.toFixed(2)}</span>
+                <span>${priceData.total.toFixed(2)}</span>
               </div>
             </div>
           </div>
 
           {/* Discount Info */}
-          {percentDiscount === 0 && (
+          {priceData.percentDiscount === 0 && (
             <div className="bg-amber-50 border border-amber-200 rounded-2xl p-4 mb-6">
               <h4 className="text-amber-900 mb-2">💡 Available Discounts</h4>
               <ul className="text-amber-800 space-y-1 text-sm">
@@ -148,6 +124,8 @@ export default function CartPage() {
           </button>
         </>
       )}
+
+      {/* This will open if we don't have  userName, and the user submit the order*/}
       {userName.length === 0 && showInput && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-30">
           <div className="bg-white p-6 rounded-2xl shadow-lg w-80 space-y-4">

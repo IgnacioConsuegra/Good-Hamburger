@@ -5,8 +5,10 @@ import Card from "../components/Card";
 import toast from "react-hot-toast";
 import { Loader } from "lucide-react";
 import { fetchMenu } from "../../lib/menuService";
+import FilterButton from "./FilterButton";
 
 export default function Home() {
+  //We save the original menu, but we show teh selectedCategory.
   const [selectedCategory, setSelectedCategory] = useState([]);
   const [menu, setMenu] = useState([]);
   const filterItems = number => {
@@ -38,6 +40,7 @@ export default function Home() {
           Delicious sandwiches and extras, made fresh daily
         </p>
       </div>
+      {/* By default the selected category will be empty, and when our data "loads" it will be populated */}
       {selectedCategory.length > 0 ? (
         <>
           <div className="flex items-center gap-4 mb-8">
@@ -58,41 +61,30 @@ export default function Home() {
               </svg>
               Filter by:
             </span>
-
-            <button
-              className={`px-4 py-1 rounded-full border text-sm transition-all duration-300 
-    active:scale-95 active:opacity-80 
-    ${
-      selectedCategory.length === menu.length &&
-      "bg-orange-100 text-orange-700 scale-105"
-    }`}
-              onClick={() => filterItems(3)}
+            <FilterButton
+              isSelected={selectedCategory.length === menu.length}
+              handleClick={() => filterItems(3)}
             >
               All
-            </button>
-            <button
-              className={`px-4 py-1 rounded-full border text-sm transition-all duration-300 
-    active:scale-95 active:opacity-80  ${
-      selectedCategory.length !== menu.length &&
-      selectedCategory[0]["type"] === "Burger" &&
-      "bg-orange-100 text-orange-700 scale-105"
-    }`}
-              onClick={() => filterItems(1)}
+            </FilterButton>
+            <FilterButton
+              isSelected={
+                selectedCategory.length !== menu.length &&
+                selectedCategory[0]["type"] === "Burger"
+              }
+              handleClick={() => filterItems(1)}
             >
               Sandwiches
-            </button>
-            <button
-              className={`px-4 py-1 rounded-full border text-sm transition-all duration-300 
-    active:scale-95 active:opacity-80 
-    ${
-      selectedCategory.length !== menu.length &&
-      selectedCategory[0]["type"] !== "Burger" &&
-      "bg-orange-100 text-orange-700 scale-105"
-    }`}
-              onClick={() => filterItems(2)}
+            </FilterButton>
+            <FilterButton
+              isSelected={
+                selectedCategory.length !== menu.length &&
+                selectedCategory[0]["type"] !== "Burger"
+              }
+              handleClick={() => filterItems(2)}
             >
               Extras
-            </button>
+            </FilterButton>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 mar ">

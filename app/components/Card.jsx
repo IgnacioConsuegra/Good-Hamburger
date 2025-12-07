@@ -2,14 +2,18 @@
 
 import React, { useContext } from "react";
 import { UserContext } from "../context/UserContext";
+import Image from "next/image";
+
 const Card = ({ image, label, title, price, id, type }) => {
   const { handleAddToCart } = useContext(UserContext);
   return (
     <div className="border rounded-xl overflow-hidden shadow-sm">
       <div className="relative">
-        <img
-          src={image || null}
+        <Image
+          src={image}
           alt={title}
+          width={80}
+          height={80}
           className="w-full h-56 object-cover"
         />
         <span className="absolute top-3 right-3 bg-white text-xs px-2 py-1 rounded shadow">

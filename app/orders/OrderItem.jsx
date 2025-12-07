@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
+import Image from "next/image";
 
 const OrderItem = ({ order }) => {
   //{total, subTotal, percentDiscount item: [{ id, image, title, price, type }]}
@@ -43,9 +44,11 @@ const OrderItem = ({ order }) => {
           {order.item.map(product => (
             <div key={product.id} className="flex gap-4">
               <div className="w-16 h-16 rounded-xl overflow-hidden bg-gray-200">
-                <img
+                <Image
                   src={product.image}
                   alt={product.title}
+                  width={80}
+                  height={80}
                   className="w-full h-full object-cover"
                 />
               </div>
