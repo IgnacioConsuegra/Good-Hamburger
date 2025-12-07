@@ -4,7 +4,7 @@ import React, { useContext, useEffect, useState } from "react";
 
 import { UserContext } from "../context/UserContext";
 import { Package, Trash2, Tag, ArrowRight } from "lucide-react";
-import OrderItem from "./OderItem";
+import OrderItem from "./OrderItem";
 
 export default function CartPage() {
   const { orders, userName } = useContext(UserContext);

@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import Card from "../components/Card";
 import toast from "react-hot-toast";
 import { Loader } from "lucide-react";
-import { fetchMenu } from "../services/menuService";
+import { fetchMenu } from "../../lib/menuService";
 
 export default function Home() {
   const [selectedCategory, setSelectedCategory] = useState([]);
@@ -68,7 +68,7 @@ export default function Home() {
     }`}
               onClick={() => filterItems(3)}
             >
-              All Items
+              All
             </button>
             <button
               className={`px-4 py-1 rounded-full border text-sm transition-all duration-300 
