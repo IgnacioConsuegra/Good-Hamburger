@@ -56,7 +56,7 @@
   - **Fixed mobile bottom navigation**
 
 - Includes **unit tests** for discount logic (using Jest).
-
+- Uses local storage, so your order or cart won’t be lost ;)
 ---
 
 ## 📁 Project Structure
