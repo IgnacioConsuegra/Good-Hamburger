@@ -54,6 +54,7 @@ export default function UserProvider({ children }) {
       toast.error("Your cart is empty");
       return;
     }
+    const date = new Date();
     const newOrder = [
       ...orders,
       {
@@ -61,6 +62,13 @@ export default function UserProvider({ children }) {
         subTotal: priceData.subTotal,
         percentDiscount: priceData.percentDiscount,
         item: cart,
+        time: {
+          day: date.getDate(),
+          month: date.getMonth() + 1,
+          year: date.getFullYear().toString().slice(-2),
+          hour: date.getHours(),
+          minute: date.getMinutes(),
+        },
       },
     ];
     //Adding new order

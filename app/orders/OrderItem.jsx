@@ -24,10 +24,12 @@ const OrderItem = ({ order }) => {
         className="flex justify-between items-center cursor-pointer"
         onClick={() => setOpen(!open)}
       >
-        <div>
-          <p className="font-semibold text-gray-900">
-            Total: ${order.total.toFixed(2)}
-          </p>
+        <div className="flex flex-col">
+          <div className="flex justify-  cursor-pointer">
+            <p className="font-semibold text-gray-900">
+              Total: ${order.total.toFixed(2)}
+            </p>
+          </div>
           <p className="text-gray-500 text-sm">Items: {summarizedItems}</p>
         </div>
 
@@ -41,6 +43,10 @@ const OrderItem = ({ order }) => {
       {/* --- DETAILS (only when open) --- */}
       {open && (
         <div className="mt-4 border-t pt-4 space-y-4">
+          <p className="font-medium text-gray-900 px-1">
+            {order.time.day}/{order.time.month}/{order.time.year} at{" "}
+            {order.time.hour}:{order.time.minute.toString().padStart(2, "0")}
+          </p>
           {order.item.map(product => (
             <div key={product.id} className="flex gap-4">
               <div className="w-16 h-16 rounded-xl overflow-hidden bg-gray-200">
@@ -55,6 +61,7 @@ const OrderItem = ({ order }) => {
 
               <div>
                 <p className="font-medium text-gray-900">{product.title}</p>
+
                 <p className="text-orange-600">${product.price.toFixed(2)}</p>
               </div>
             </div>
