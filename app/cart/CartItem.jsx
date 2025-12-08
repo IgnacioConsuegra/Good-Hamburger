@@ -27,7 +27,7 @@ const CartItem = ({ item, handleRemoveFromCart }) => {
         {/* Remove Button */}
         <button
           onClick={() => handleRemoveFromCart(item)}
-          className="shrink-0 w-10 h-10 flex items-center justify-center rounded-lg hover:bg-red-50 text-red-600 transition-colors cursor-pointer"
+          className="shrink-0 w-10 h-10 flex items-center justify-center rounded-lg hover:bg-red-50 text-red-600 cursor-pointer active:scale-95 active:shadow-inner transition-all duration-150 "
           aria-label="Remove item"
         >
           <Trash2 className="w-5 h-5" />

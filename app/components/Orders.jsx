@@ -13,7 +13,7 @@ const Orders = () => {
     <button
       onClick={() => router.push("/orders")}
       className={`flex flex-col items-center p-2 cursor-pointer
-    transition-all duration-300 ease-out
+    transition-all duration-300 ease-out active:scale-95 
     ${isActive ? "text-orange-600 scale-110" : "text-gray-700 scale-100"}
   `}
     >
