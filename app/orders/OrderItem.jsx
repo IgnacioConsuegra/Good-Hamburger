@@ -53,9 +53,10 @@ const OrderItem = ({ order }) => {
                 <Image
                   src={product.image}
                   alt={product.title}
-                  width={80}
-                  height={80}
-                  className="w-full h-full object-cover"
+                  width={800}
+                  height={600}
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover"
                 />
               </div>
 
