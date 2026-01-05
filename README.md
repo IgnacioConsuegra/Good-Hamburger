@@ -12,7 +12,7 @@
 
 <hr>
 
-## 📌 Table of Contents
+## Table of Contents
 
 - [Overview](#overview)
 - [Project Structure](#project-structure)
@@ -30,7 +30,7 @@
 
 ---
 
-## 🔥 Overview
+## Overview
 
 **GOOD HAMBURGER** is a frontend demo designed to simulate a real-world ordering system:
 
@@ -59,7 +59,7 @@
 - Uses local storage, so your order or cart won’t be lost ;)
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 /app
@@ -92,7 +92,7 @@
 
 ---
 
-## ⚙️ Installation
+## Installation
 
 Make sure you have **Node.js ≥ 16** installed.
 
@@ -105,7 +105,7 @@ npm install
 
 ---
 
-## 🏃 Available Scripts
+## Available Scripts
 
 ```json
 "scripts": {
@@ -118,9 +118,9 @@ npm install
 
 ---
 
-## 🚀 Running the Project
+## Running the Project
 
-### 🔧 Development Mode
+### Development Mode
 
 To run the project in development:
 
@@ -130,7 +130,7 @@ npm run dev
 
 ---
 
-### 🏭 Production Build
+### Production Build
 
 To run the project in production:
 
@@ -145,7 +145,7 @@ npm run start
 npm run init
 ```
 
-### 🧪 Running Unit Tests
+### Running Unit Tests
 
 To execute all unit tests:
 
@@ -157,7 +157,7 @@ This will automatically run Jest and display the test results in your terminal.
 
 ---
 
-## 📦 Core Files
+## Core Files
 
 Below are the most important files that make the project work.
 
@@ -265,7 +265,7 @@ Includes:
 
 ---
 
-## 🎯 Discount Logic Explained
+##  Discount Logic Explained
 
 The discount rules work in the following order:
 
@@ -296,7 +296,7 @@ The highest matching discount is always selected.
 
 ---
 
-## 🧪 Unit Testing (Jest)
+## Unit Testing (Jest)
 
 ### `/__tests__/calculateDiscount.test.js`
 
@@ -383,7 +383,7 @@ module.exports = {
 
 ---
 
-## 🩹 Troubleshooting
+## Troubleshooting
 
 | Issue                          | Solution                                              |
 | ------------------------------ | ----------------------------------------------------- |
@@ -396,7 +396,7 @@ module.exports = {
 
 ---
 
-## 🧠 Best Practices Used
+##  Best Practices Used
 
 - Pure logic extracted for testability.
 - UI decoupled from business logic.
@@ -407,13 +407,13 @@ module.exports = {
 
 ---
 
-# 📋 Requirements & Project Guidelines
+# Requirements & Project Guidelines
 
-## ✅ **Project Requirements**
+## **Project Requirements**
 
 This application was built following all specifications requested in the assignment:
 
-### **🛒 Ordering Rules**
+### ** Ordering Rules**
 
 1. If the customer selects a **sandwich + fries + soft drink**, they receive a **20% discount**.
 2. If the customer selects a **sandwich + soft drink**, they receive a **15% discount**.
@@ -424,22 +424,22 @@ This application was built following all specifications requested in the assignm
 
 ---
 
-### **📦 Functional Requirements**
+### ** Functional Requirements**
 
 The application includes the following features:
 
 | Requirement                                         | Status                           |
 | --------------------------------------------------- | -------------------------------- |
-| Display all sandwiches and extras                   | ✅ Completed                     |
-| Filter to show only sandwiches                      | ✅ Completed                     |
-| Filter to show only extras                          | ✅ Completed                     |
-| Add items to the cart                               | ✅ Completed                     |
-| Display items in the cart                           | ✅ Completed                     |
-| Submit an order and show final total                | ✅ Completed                     |
-| No payment entry required                           | ✅ Implemented                   |
-| Request customer's name before submitting the order | ✅ Implemented                   |
-| Display all submitted orders                        | ✅ Completed                     |
-| Responsive + clean UI                               | ✅ Implemented with Tailwind CSS |
+| Display all sandwiches and extras                   |    Completed                     |
+| Filter to show only sandwiches                      |    Completed                     |
+| Filter to show only extras                          |    Completed                     |
+| Add items to the cart                               |    Completed                     |
+| Display items in the cart                           |    Completed                     |
+| Submit an order and show final total                |    Completed                     |
+| No payment entry required                           |    Implemented                   |
+| Request customer's name before submitting the order |    Implemented                   |
+| Display all submitted orders                        |    Completed                     |
+| Responsive + clean UI                               |    Implemented with Tailwind CSS |
 
 ---
 
@@ -447,7 +447,7 @@ The application includes the following features:
 
 This project includes:
 
-✅ Unit Tests
+ Unit Tests
 
 This project includes a complete unit test suite for validating the discount calculation logic.
 
@@ -470,7 +470,7 @@ These tests ensure the pricing system behaves correctly under all scenarios.
 
 ---
 
-## 🛠 Project Guidelines
+##  Project Guidelines
 
 ### **Technology**
 
@@ -501,23 +501,12 @@ The menu is loaded using a mock service:
 
 ### **Authentication**
 
-- ❌ Not required
+-  Not required
 - The project contains **no login or account system**.
 
 ---
 
-### **Deliverables**
-
-This repository contains everything required:
-
-- ✔️ Complete source code
-- ✔️ Full README with setup instructions
-- ✔️ Sample `menu.json` data
-- ✔️ Optional unit tests included
-
----
-
-## 🤝 Contributing
+## Contributing
 
 1. Fork this repo
 2. Create a new branch: `feature/my-change`
@@ -526,30 +515,30 @@ This repository contains everything required:
 
 ---
 
-## 📬 Contact
+## Contact
 
 If you have any questions, feedback, or want to connect, feel free to reach out!
 
-### 🔗 **Links**
+### **Links**
 
-- **🌐 Website:**
+- **Website:**
   [https://www.ignacioconsuegra.com/](https://www.ignacioconsuegra.com/)
-- **💼 LinkedIn:**
+- ** LinkedIn:**
   [https://www.linkedin.com/in/ignacio-consuegra-b8a9691b1/](https://www.linkedin.com/in/ignacio-consuegra-b8a9691b1/)
-- **🐙 GitHub:**
+- **GitHub:**
   [https://github.com/IgnacioConsuegra](https://github.com/IgnacioConsuegra)
 
-### 📧 **Email**
+### **Email**
 
 **[ignacioandresconsuegradelacruz@gmail.com](mailto:ignacioandresconsuegradelacruz@gmail.com)**
 
-### 📱 **Phone**
+### **Phone**
 
 **+57 315 295 0340**
 
 ---
 
-## 📸 Images
+## Images
 
 <p align="center">
   <img alt="Good Hamburger" src="https://res.cloudinary.com/djhvdnjpz/image/upload/v1765139298/Screenshot_164_xvgl8y.jpg" width="640"/>
@@ -581,3 +570,5 @@ If you have any questions, feedback, or want to connect, feel free to reach out!
   <img alt="Good Hamburger" src="https://res.cloudinary.com/djhvdnjpz/image/upload/v1765139837/WhatsApp_Image_2025-12-07_at_15.36.38_c7a421f1_pxrold.jpg" width="640"/>
 </p>
 <hr>
+
+In a few days, backend will be added.
