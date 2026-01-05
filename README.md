@@ -413,7 +413,7 @@ module.exports = {
 
 This application was built following all specifications requested in the assignment:
 
-### ** Ordering Rules**
+### **Ordering Rules**
 
 1. If the customer selects a **sandwich + fries + soft drink**, they receive a **20% discount**.
 2. If the customer selects a **sandwich + soft drink**, they receive a **15% discount**.
@@ -424,7 +424,7 @@ This application was built following all specifications requested in the assignm
 
 ---
 
-### ** Functional Requirements**
+### **Functional Requirements**
 
 The application includes the following features:
 
@@ -523,7 +523,7 @@ If you have any questions, feedback, or want to connect, feel free to reach out!
 
 - **Website:**
   [https://www.ignacioconsuegra.com/](https://www.ignacioconsuegra.com/)
-- ** LinkedIn:**
+- **LinkedIn:**
   [https://www.linkedin.com/in/ignacio-consuegra-b8a9691b1/](https://www.linkedin.com/in/ignacio-consuegra-b8a9691b1/)
 - **GitHub:**
   [https://github.com/IgnacioConsuegra](https://github.com/IgnacioConsuegra)
