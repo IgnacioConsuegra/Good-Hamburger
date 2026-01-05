@@ -522,7 +522,7 @@ If you have any questions, feedback, or want to connect, feel free to reach out!
 ### **Links**
 
 - **Website:**
-  [https://www.ignacioconsuegra.com/](https://www.ignacioconsuegra.com/)
+  [https://ignacioconsuegra.com/](https://www.ignacioconsuegra.com/)
 - **LinkedIn:**
   [https://www.linkedin.com/in/ignacio-consuegra-b8a9691b1/](https://www.linkedin.com/in/ignacio-consuegra-b8a9691b1/)
 - **GitHub:**
